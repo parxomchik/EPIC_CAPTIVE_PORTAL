@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" ng-app="mgcrea.ngStrapDocs">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/angular-motion.css"/>
+    <link rel="stylesheet" href="css/librares.min.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,7 +19,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-controller="MainCtrl">
 <div class="row bg_img margin_fix">
     <div class="col-xs-12">
         <nav class="navbar navbar-default border_radius_0 margin_fix">
@@ -61,7 +63,7 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <div class="panel panel-default border_radius_0">
+        <div class="panel panel-default border_radius_0" >
             <form class=" col-md-4 padding_top_10 col-xs-12" role="search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" name="q">
@@ -70,10 +72,17 @@
                     </div>
                 </div>
             </form>
-                        <div id="tab" class="btn-group col-xs-8 col-md-2 col-md-offset-6 col-xs-offset-4 " data-toggle="buttons-radio">
+            <form name="datepickerForm" class="form-inline col-md-3 padding_top_10 col-md-offset-1" role="form" ng-controller="DatepickerDemoCtrl">
+                <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                    <label class="control-label"><i class="fa fa-calendar"></i>Дата</label>
+                    <input type="text" class="form-control" ng-model="selectedDate" name="date" bs-datepicker>
+                </div>
+            </form>
+                        <div id="tab" class="btn-group col-xs-8 col-md-2 col-md-offset-2 col-xs-offset-4 " data-toggle="buttons-radio">
                             <a href="#prices" class="btn btn-primary active text-center" data-toggle="tab"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
                             <a href="#features" class="btn btn-primary text-center" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>
                         </div>
+
                 <div class="tab-content">
                     <div class="tab-pane active" id="prices">
                         <div class="panel-body">
@@ -341,6 +350,12 @@
 <footer class=""></footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-animate.js"></script>
+<script src="js/angular-sanitize.min.js"></script>
+<script src="js/angular-strap.min.js"></script>
+<script src="js/angular-strap.tpl.min.js"></script>
+<script src="js/app.js"></script>
 <script src="js/main.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
