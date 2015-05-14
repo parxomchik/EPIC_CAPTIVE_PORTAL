@@ -41,13 +41,15 @@ $( document ).ready(function() {
             id:   $('#user_name option').val(),
             pass: $('#password').text()
         };
-        addUser(user);
+        var str_user = JSON.stringify(user);
+        console.log(str_user);
+        addUser(str_user);
     });
     function addUser(data)
     {
         $.ajax({
             type: "POST",
-            url: "http://10.7.131.134/exampleService/PostWithOnePrim/",
+            url: "http://10.7.131.134/exampleService/UserRegistry/",
             data: JSON.stringify(data),
             //contentType: "application/json",
             contentType: "application/json; charset=utf-8",
