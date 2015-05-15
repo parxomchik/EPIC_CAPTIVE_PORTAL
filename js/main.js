@@ -1,49 +1,29 @@
-$( document ).ready(function() {
-    var data1 =
-    {
-        "input": "1"
-    };
-
-    addData(data1);
-
-    function addData(data)
-    {
-        $.ajax({
-            type: "POST",
-            url: "http://10.7.131.134/exampleService/PostWithOnePrim/",
-            data: JSON.stringify(data),
-            //contentType: "application/json",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                var logins = JSON.parse(data);
-                console.log( logins.Name );
-                $('#user_name option').val(logins.Id);
-                $('#user_name option').text(logins.Name);
-            },
-            error: function() {
-                alert("Error");
-            }
-
-        });
-    }
-    $("#login-btn").click(function submitButton() {
-        var Auth = {
-            login: $('#inputLoginEmail').val(), // this is fours line
-            password: $('#login_password').val()
-        };
-        addData(Auth);
+$(document).ready(function() {
+    $.ajax({
+        type: "POST",
+        url: "http://10.7.131.134/exampleService/PostWithZero/",
+        data: JSON.stringify(),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var logins = JSON.parse(data);
+            $('#user_name option').val(logins.Id);
+            $('#user_name option').text(logins.Name);
+        },
+        error: function() {
+            alert("Error");
+        }
     });
     $("#submit").click(function registerButton() {
-//
         var user = {
-            Name: $('#user_name option').text(),
-            id:   $('#user_name option').val(),
-            pass: $('#password').text()
+            "Id":   $('#user_name option').val(),
+            //"Name": $('#user_name option').text(),
+            "Pass": $('.form-signin #password').val()
         };
-        var str_user = JSON.stringify(user);
-        console.log(str_user);
-        addUser(str_user);
+        //var str_user = JSON.stringify(user);
+        console.log(user);
+        addUser(user);
     });
     function addUser(data)
     {
@@ -51,11 +31,18 @@ $( document ).ready(function() {
             type: "POST",
             url: "http://10.7.131.134/exampleService/UserRegistry/",
             data: JSON.stringify(data),
-            //contentType: "application/json",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                alert("Success");
+                console.log(data);
+                var stasus = data;
+                console.log(status);
+                if (status == true){
+                    window.location.replace("http://10.7.131.134/servicedocs/client_page.html");
+                }
+                else {
+                    alert('fuck');
+                }
             },
             error: function() {
                 alert("Error");
