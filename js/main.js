@@ -35,17 +35,15 @@ $(document).ready(function() {
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                var stasus = data;
-                console.log(status);
-                if (status == true){
+                if (data === true){
                     window.location.replace("http://10.7.131.134/servicedocs/client_page.html");
                 }
                 else {
-                    alert('fuck');
+                    alert('Neverniy parol');
                 }
             },
             error: function() {
-                alert("Error");
+                alert("Net otveta ot servera");
             }
 
         });
