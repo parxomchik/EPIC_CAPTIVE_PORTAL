@@ -17,12 +17,14 @@ footer {
     margin-bottom: 5px;
 }
 
-.form-signin {
-    max-width: 380px;
+.form-signin
+{
+    max-width: 330px;
     padding: 15px;
     margin: 0 auto;
 }
-.form-signin .form-control {
+.form-signin .form-control
+{
     position: relative;
     font-size: 16px;
     height: auto;
@@ -82,12 +84,14 @@ footer {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
-.select-name {
+.select-name
+{
     display: block;
     margin: 30px 10px 10px;
 }
 
-.logo-img {
+.logo-img
+{
     width: 96px;
     height: 96px;
     margin: 0 auto 10px;

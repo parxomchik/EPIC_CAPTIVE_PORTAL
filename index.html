@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html ng-app="mgcrea.ngStrapDocs">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/angular-motion.css"/>
+    <link rel="stylesheet" href="css/librares.min.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,19 +20,23 @@
     <![endif]-->
 </head>
 <body>
-<div class="row bg_img margin_fix">
-    <div class="col-sm-6 col-md-4 col-md-offset-4 col-xs-12">
+<div class="row bg_img margin_fix" ng-controller="loginCtrl">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4 ">
         <div class="account-wall">
+            <div id="error_msg"></div>
             <div id="my-tab-content" class="tab-content">
                 <div class="tab-pane active" id="login">
                     <img class="profile-img" src="img/epic.png" alt="">
                     <h2 class="text-center">SERVICE DOCS</h2>
-                    <form class="form-signin" action="" method="">
-                        <select id="user_name" class="form-control">
-                            <option>Ткачук Дмитро</option>
+                    <form name="loginForm" class="form-signin" ng-submit="login_submit()">
+                        <select class="form-control"
+                                ng-model="user_id"
+                                ng-init="user_id = 134"
+                                ng-options="value.Id as value.Name for value in logins">
+                            <option>--</option>
                         </select>
-                        <input id="password" type="password" class="form-control" placeholder="Пароль" required>
-                        <btn id="submit" class="btn btn-lg btn-default btn-block" >Войти</btn>
+                        <input ng-model="user_pass" id="password" type="password" class="form-control" placeholder="Введіть пароль" required>
+                        <btn ng-click="login_submit()" class="btn btn-lg btn-default btn-block" >Війти</btn>
                     </form>
                 </div>
             </div>
@@ -40,11 +46,14 @@
 
 <footer style="position: absolute"></footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-animate.js"></script>
+<script src="js/angular-sanitize.min.js"></script>
+<script src="js/angular-strap.min.js"></script>
+<script src="js/angular-strap.tpl.min.js"></script>
+<script src="js/app.js"></script>
+<!--<script src="js/main.js"></script>-->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-
